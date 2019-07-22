@@ -55,6 +55,3 @@ function time() {
 
 
 }}})    
-
-
-client.login("NjAxNzg5MTcyNDQ0ODIzNTYz.XTHaIw.SoTKnnJjT6hh1fxJSt5G_njtw04");
