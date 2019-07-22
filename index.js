@@ -16,38 +16,45 @@ var server = net.createServer(function(socket) {
 });
 });
 
-server.listen(1337, '127.0.0.1');
+server.listen(1337, "0.0.0.0");
+
 
 
 client.on('ready', () => {
   var general = client.channels.get("397900004468981770")
 
   console.log(`Logged in as ${client.user.tag}!`)
-  general.send("hi im here")
+//  general.send("hi im here")
 })
 
 client.on('message', msg => {
   var general = client.channels.get("397900004468981770")
   console.log(msg.content)
   if (msg.content.startsWith("!timeout")) {
-
-  msg.reply('timing out')
 let member = msg.mentions.members.first();
 let role = msg.guild.roles.find(r => r.name === "Time Out Role");
-let role2 = msg.guild.roles.find(r => r.name === "General");
-    if(message.member.roles.find(r => r.name === "Admin")) {
-   
-       member.addRole(role)
-       member.removeRole(role2)
-       console.log("added role")
-       sleep(600000)
+function addrole() {
+        var timemins = time() / 60000
+        msg.reply("timing out" + ' ' + member + " " + "for" + " " + timemins + " " + "minutes")
+        member.addRole(role)
+}
+function delrole() {
        member.removeRole(role)
        console.log("removed role")
+}
+function time() {
+       var time = msg.content.split(" ").splice(-1)
+       var time = time * 60000
+       return time
+}
+    if (msg.member.roles.find(r => r.name === "Admin")) {
+        time()
+	addrole()
+        console.log(time)
+        setTimeout(delrole, time());
 
 
+}}})    
 
-}}
 
-
-client.login("NjAxNzg5MTcyNDQ0ODIzNTYz.XTHaIw.SoTKnnJjT6hh1fxJSt5G_njtw04")
-
+client.login("NjAxNzg5MTcyNDQ0ODIzNTYz.XTHaIw.SoTKnnJjT6hh1fxJSt5G_njtw04");
