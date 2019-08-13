@@ -55,5 +55,5 @@ function time() {
 
 
 }}})    
-client.login(process.env.BOT_TOKEN);
+client.login("NjAxNzg5MTcyNDQ0ODIzNTYz.XVMlmg.HO92H_aARB9uE888x6GcNaO--OM");
 
