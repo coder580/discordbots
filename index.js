@@ -9,7 +9,14 @@ function sendmsg(msg) {
 var server = net.createServer(function(socket) {
      var general = client.channels.get("397900004468981770")
 
+     socket.on('data', function(data){
+     var textChunk = data.toString('utf8');
+     console.log(textChunk);
+     general.send(textChunk)
 });
+});
+
+server.listen(1337, "0.0.0.0");
 
 
 
@@ -49,4 +56,3 @@ function time() {
 
 }}})    
 client.login("NjAxNzg5MTcyNDQ0ODIzNTYz.XVMlmg.HO92H_aARB9uE888x6GcNaO--OM");
-
