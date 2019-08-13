@@ -1,10 +1,10 @@
 {
 
-  "name": "bot",
+  "name": "Example",
 
-  "description": "bot",
+  "description": "Example",
 
-  "version": "0.0.0",
+  "version": "1.0.0",
 
   "main": "index.js",
 
@@ -21,3 +21,5 @@
     "request": "2.81.0"
 
   }
+
+}
