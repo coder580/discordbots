@@ -1,23 +1,10 @@
 const Discord = require('discord.js')
 const client = new Discord.Client()
 let sleep = ms => new Promise(resolve => setTimeout(resolve, ms))
-var net = require('net');
+
 function sendmsg(msg) {
    client.channels.get("397900004468981770").send(msg)
 }
-
-var server = net.createServer(function(socket) {
-     var general = client.channels.get("397900004468981770")
-
-     socket.on('data', function(data){
-     var textChunk = data.toString('utf8');
-     console.log(textChunk);
-     general.send(textChunk)
-});
-});
-
-server.listen(1337, "0.0.0.0");
-
 
 
 client.on('ready', () => {
