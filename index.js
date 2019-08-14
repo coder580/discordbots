@@ -4,7 +4,7 @@ let sleep = ms => new Promise(resolve => setTimeout(resolve, ms))
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`)
-  client.user.setActivity("With my dick", "PLAYING")
+  client.user.setActivity("Nibbers", "WATCHING")
 })
 
 client.on('message', msg => {
