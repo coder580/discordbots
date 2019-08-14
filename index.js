@@ -2,16 +2,8 @@ const Discord = require('discord.js')
 const client = new Discord.Client()
 let sleep = ms => new Promise(resolve => setTimeout(resolve, ms))
 
-function sendmsg(msg) {
-   client.channels.get("397900004468981770").send(msg)
-}
-
-
 client.on('ready', () => {
-  var general = client.channels.get("397900004468981770")
-
   console.log(`Logged in as ${client.user.tag}!`)
-//  general.send("hi im here")
 })
 
 client.on('message', msg => {
