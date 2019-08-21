@@ -2,7 +2,7 @@ const Discord = require('discord.js')
 const client = new Discord.Client()
 let sleep = ms => new Promise(resolve => setTimeout(resolve, ms))
 
-bot.on('guildMemberAdd', member => {
+client.on('guildMemberAdd', member => {
     member.guild.channels.get('channelID').send("Welcome"); 
 });
 
