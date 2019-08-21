@@ -2,6 +2,10 @@ const Discord = require('discord.js')
 const client = new Discord.Client()
 let sleep = ms => new Promise(resolve => setTimeout(resolve, ms))
 
+bot.on('guildMemberAdd', member => {
+    member.guild.channels.get('channelID').send("Welcome"); 
+});
+
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`)
   client.user.setActivity("With my pee pee", "PLAYING")
