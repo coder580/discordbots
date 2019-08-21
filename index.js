@@ -2,9 +2,11 @@ const Discord = require('discord.js')
 const client = new Discord.Client()
 let sleep = ms => new Promise(resolve => setTimeout(resolve, ms))
 
-//client.on('guildMemberAdd', member => {
-//    member.guild.channels.get('channelID').send("Welcome"); 
-//});
+
+bot.on("guildMemberAdd", member => {
+    let guild = member.guild;
+    guild.defaultChannel.sendMessage(`@everyone Welcome ${member.user} to the discord server`);
+  });
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`)
