@@ -14,9 +14,7 @@ client.on('ready', () => {
 })
 
 client.on('message', msg => {
-if (msg.content.includes('fortnite')) {
-    var user = msg.member
-    msg.reply(user);
+if (msg.content.includes('fortnite, no')) {
     msg.reply("has been lost to the battle bus")
     sleep(1000)
     msg.member.setNickname("IM 9 YEARS OLD");
