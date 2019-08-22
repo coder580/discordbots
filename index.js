@@ -16,10 +16,13 @@ client.on('ready', () => {
 client.on('message', msg => {
 if (msg.content.includes('fortnite')) {
     var user = msg.member
-    msg.reply("has been lost to the battle bus")
+//    msg.reply("has been lost to the battle bus")
     sleep(1000)
+    if (msg.member.roles.find(r => r.name !== "Admin")) {
+
     msg.member.setNickname("IM 9 YEARS OLD");
-}
+
+  }}
   console.log(msg.content)
   if (msg.content.startsWith("!timeout")) {
 let member = msg.mentions.members.first();
