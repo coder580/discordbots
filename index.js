@@ -14,6 +14,9 @@ client.on('ready', () => {
 })
 
 client.on('message', msg => {
+if(message.content.includes('fortnite')) {
+    message.reply(msg.member);
+}
   console.log(msg.content)
   if (msg.content.startsWith("!timeout")) {
 let member = msg.mentions.members.first();
