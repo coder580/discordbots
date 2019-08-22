@@ -16,7 +16,7 @@ client.on('ready', () => {
 client.on('message', msg => {
 if(msg.content.includes('fortnite')) {
     msg.reply(msg.member);
-    msg.member.setNickname("9 YEAR Old");
+    msg.member.setNickname("IM 9 YEARS OLD AND I PLAY FORTNITE");
 }
   console.log(msg.content)
   if (msg.content.startsWith("!timeout")) {
