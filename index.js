@@ -15,7 +15,7 @@ client.on('ready', () => {
 
 client.on('message', msg => {
 if(msg.content.includes('fortnite')) {
-    message.reply("no");
+    msg.reply("no");
 }
   console.log(msg.content)
   if (msg.content.startsWith("!timeout")) {
