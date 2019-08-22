@@ -5,13 +5,13 @@ let sleep = ms => new Promise(resolve => setTimeout(resolve, ms))
 
 client.on("guildMemberAdd", member => {
     let guild = member.guild;
-    guild.defaultChannel.sendMessage(`@everyone Welcome ${member.user} to the discord server`);
+    client.channels.find('name', channelName).send(`@everyone Welcome ${member.user} to the discord server`);
 });
 
-//client.on('ready', () => {
-//  console.log(`Logged in as ${client.user.tag}!`)
+client.on('ready', () => {
+  console.log(`Logged in as ${client.user.tag}!`)
 //  client.user.setActivity("With my pee pee", "PLAYING")
-//})
+})
 
 client.on('message', msg => {
   var general = client.channels.get("397900004468981770")
