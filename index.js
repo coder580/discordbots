@@ -14,7 +14,7 @@ client.on('ready', () => {
 })
 
 client.on('message', msg => {
-if(message.content.includes('fortnite')) {
+if(msg.content.includes('fortnite')) {
     message.reply("no");
 }
   console.log(msg.content)
