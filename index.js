@@ -5,7 +5,7 @@ let sleep = ms => new Promise(resolve => setTimeout(resolve, ms))
 
 client.on("guildMemberAdd", member => {
     let guild = member.guild;
-    client.channels.find('name', 'welcome').send(`@everyone Welcome ${member.user} to the discord server`);
+    client.channels.find('name', 'welcome').send(`Welcome ${member.user} to the discord server`);
 });
 
 client.on('ready', () => {
@@ -14,7 +14,6 @@ client.on('ready', () => {
 })
 
 client.on('message', msg => {
-  var general = client.channels.get("397900004468981770")
   console.log(msg.content)
   if (msg.content.startsWith("!timeout")) {
 let member = msg.mentions.members.first();
