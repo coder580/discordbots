@@ -27,7 +27,7 @@ if (msg.content.includes('fortnite')) {
 function setnick() {
     msg.member.setNickname("IM 9 YEARS OLD");
 }
-setTimeout(setnick, 5000());
+setTimeout(setnick, "5000"());
   }
   console.log(msg.content)
   if (msg.content.startsWith("!timeout")) {
