@@ -20,7 +20,7 @@ if (msg.content.includes('fortnite')) {
 //    msg.reply("has been lost to the battle bus")
 
 function setnick() {
-    msg.member.setNickname("IM 9 YEARS OLD");
+    msg.member.setNickname("[muted] IM 9 YEARS OLD");
 }
 setTimeout(setnick, 5000);
   }
