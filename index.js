@@ -20,6 +20,12 @@ client.on('ready', () => {
 })
 
 client.on('message', msg => {
+
+if (message.content === '!ping') {
+	// send back "Pong." to the channel the message was sent in
+	message.channel.send('Pong.');
+}
+
 if (msg.content.includes('fortnite')) {
     var user = msg.member
 //    msg.reply("has been lost to the battle bus")
