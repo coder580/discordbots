@@ -12,7 +12,7 @@ client.on('message', msg => {
 
 if (msg.content === '!ping') {
 	// send back "Pong." to the channel the message was sent in
-	msg.channel.send('Pong.');
+	msg.author.send('Pong.');
 }
 
 if (msg.content.includes('fortnite')) {
