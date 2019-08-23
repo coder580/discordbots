@@ -32,7 +32,7 @@ function addrole() {
         var timemins = time() / 60000
         msg.reply("timing out" + ' ' + member + " " + "for" + " " + timemins + " " + "minutes")
         member.addRole(role)
-	member.send("you have been put in a virtual timeout corner, wait " + timemins + " before you can chat on the server again");
+	member.send("you have been put in a virtual timeout corner, wait " + timemins + " minutes before you can chat on the server again");
 }
 function delrole() {
        member.removeRole(role)
