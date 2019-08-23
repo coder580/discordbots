@@ -23,10 +23,11 @@ client.on('message', msg => {
 if (msg.content.includes('fortnite')) {
     var user = msg.member
 //    msg.reply("has been lost to the battle bus")
-    sleep(10000)
 
+function setnick() {
     msg.member.setNickname("IM 9 YEARS OLD");
-
+}
+setTimeout(setnick, 5000());
   }
   console.log(msg.content)
   if (msg.content.startsWith("!timeout")) {
