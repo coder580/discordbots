@@ -3,17 +3,6 @@ const client = new Discord.Client()
 let sleep = ms => new Promise(resolve => setTimeout(resolve, ms))
 
 
-client.on("guildMemberAdd", member => {
-    let guild = member.guild;
-    client.channels.find('name', 'welcome').send(`Welcome ${member.user} to the discord server`);
-    client.channels.find('name', 'welcome').send(`rules:`);
-    client.channels.find('name', 'welcome').send(`no nsfw`);
-    client.channels.find('name', 'welcome').send(`no spamming`);
-    client.channels.find('name', 'welcome').send(`dont mention everyone unless you `);
-    client.channels.find('name', 'welcome').send(`no advertising`);
-
-});
-
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`)
 //  client.user.setActivity("With my pee pee", "PLAYING")
