@@ -33,8 +33,17 @@ setTimeout(t, 500)
 function t() {
  msg.react("🇹")
 }
-
-
+function z() {
+msg.react("🇳");
+setTimeout(p, 500)
+}
+function p() {
+msg.react("🇮")
+setTimeout(b, 500)
+}
+function l(){
+msg.react("🇧")
+}
 if (msg.content.includes('yeet')) {
 	y()
 }
