@@ -95,7 +95,7 @@ var d = d.toString().trim();
 if (d !== g ) {
 client.channels.get("466669866934599680").send(d)
 var g = d
-
+}
 })
 
 });
