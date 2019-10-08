@@ -1,4 +1,5 @@
 
+												
 const Discord = require('discord.js')
 const client = new Discord.Client()
 let sleep = ms => new Promise(resolve => setTimeout(resolve, ms))
@@ -99,5 +100,6 @@ var g = d
 })
 
 });
+
 
 client.login(process.env.BOT_TOKEN)
