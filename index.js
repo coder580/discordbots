@@ -15,37 +15,41 @@ function checkperms(){
     }}
 function y() {
  msg.react("🇾")
-setTimeout(e, 500)
+setTimeout(ye, 500)
 }
-function e() {
+function ye() {
  msg.react("🇪")
-setTimeout(f, 500)
+setTimeout(yee, 500)
 }
-function f() {
+function yee() {
  msg.react("3⃣")
-setTimeout(t, 500)
+setTimeout(yeet, 500)
 }
-function t() {
+function yeet() {
  msg.react("🇹")
 }
-function z() {
+function n() {
 msg.react("🇳");
-setTimeout(p, 500)
+setTimeout(ni, 500)
 }
-function p() {
+function ni() {
 msg.react("🇮")
-setTimeout(b, 500)
+setTimeout(nib, 500)
 }
-function l(){
+function nib(){
 msg.react("🇧")
 }
 function addrole() {
+	let member = msg.mentions.members.first();
+        let role = msg.guild.roles.find(r => r.name === "Time Out Role");
         var timemins = time() / 60000
         msg.reply("timing out" + ' ' + member + " " + "for" + " " + timemins + " " + "minutes")
         member.addRole(role)
 	member.send("you have been put in a virtual timeout corner, wait " + timemins + " minutes before you can chat on the server again");
 }
 function delrole() {
+       let member = msg.mentions.members.first();
+       let role = msg.guild.roles.find(r => r.name === "Time Out Role");
        member.removeRole(role)
        console.log("removed role")
        member.send("you have been released from the virtual timeout corner i hope you have learned your lesson, you may chat now")
@@ -69,14 +73,8 @@ if (msg.content.includes('yeet')) {
 	y()
 }
 if (msg.content.includes('nib')) {
-msg.channel.send("*n ឵឵i ឵឵b*")
+msg.channel.send("*nib*")
 }
-unction checkperms(){
-    if (msg.member.roles.find(r => r.name === "Moderation Team")) {
-    	return "True"
-    	} else{
-    	return "False"
-    }}
 
 
 //  console.log(msg.content)
