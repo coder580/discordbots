@@ -18,17 +18,17 @@ if (msg.content === '!ping') {
 
 function y() {
  msg.react("🇾")
-setTimeout(e, 400)
+setTimeout(e, 500)
 }
 
 function e() {
  msg.react("🇪")
-setTimeout(f, 400)
+setTimeout(f, 500)
 }
 
 function f() {
  msg.react("3⃣")
-setTimeout(t, 400)
+setTimeout(t, 500)
 }
 function t() {
  msg.react("🇹")
