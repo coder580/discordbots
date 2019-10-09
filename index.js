@@ -67,7 +67,7 @@ function delrole() {
        member.removeRole(role)
        console.log("removed role")
        member.send("you have been released from the virtual timeout chair i hope you have learned your lesson, you may chat now")
-       bot.channels.get("601173874209718287").send("removing " + member + " from timeout")
+       client.channels.get("601173874209718287").send("removing " + member + " from timeout")
 
 }
 function time() {
