@@ -93,12 +93,9 @@ let role = msg.guild.roles.find(r => r.name === "Time Out Role");
 
 
 if (msg.content.includes('untimeout')) {
-let member = msg.mentions.members.first();
-let role = msg.guild.roles.find(r => r.name === "Time Out Role");
-
 if (checkperms()) {
 delrole()
-}
+}}
 
 console.log(msg.content)
 
