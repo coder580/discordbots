@@ -8,7 +8,7 @@ console.log("logged in the bot is")
 client.user.setActivity("With my pee pee", "PLAYING")
 
 })
-
+//start of new message detection
 client.on('message', msg => {
 /*
 these are all the functions in the bot
@@ -67,7 +67,7 @@ function delrole() {
        member.removeRole(role)
        console.log("removed role")
        member.send("you have been released from the virtual timeout chair i hope you have learned your lesson, you may chat now")
-       msg.channel.send("removing " + member + " from timeout")
+       bot.channels.get("601173874209718287").send("removing " + member + " from timeout")
 
 }
 function time() {
@@ -106,8 +106,13 @@ delrole()
 }
 //logs all chat messages to console, remove if your going to use on a large server for obvious reasons
 console.log(msg.content)
-
+//end of new message detection
 });
+//detects when message deleted
+client.on("messageDelete", (messageDelete) => {
+  
+  }); 
+//end of message delete detection
 /*this part logs in with the bot token, mine is set on the hosting platform
 if your running it replace process.env.BOT_TOKEN with "your token" with the qoutes
 */
