@@ -88,7 +88,7 @@ let role = msg.guild.roles.find(r => r.name === "Time Out Role");
 	addrole()
         console.log(time)
         setTimeout(delrole, time());
-}}
+}
 
 
 
