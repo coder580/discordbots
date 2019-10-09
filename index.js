@@ -2,10 +2,11 @@
 												
 const Discord = require('discord.js')
 const client = new Discord.Client()
-let sleep = ms => new Promise(resolve => setTimeout(resolve, ms))
 client.on('ready', () => {
-  console.log("logged in the bot is")
-  client.user.setActivity("With my pee pee", "PLAYING")
+//runs on succesful login
+console.log("logged in the bot is")
+client.user.setActivity("With my pee pee", "PLAYING")
+
 })
 
 client.on('message', msg => {
@@ -82,10 +83,7 @@ msg.channel.send("*nib*")
 }
 
 
-//  console.log(msg.content)
   if (msg.content.startsWith("!timeout")) {
-let member = msg.mentions.members.first();
-let role = msg.guild.roles.find(r => r.name === "Time Out Role");
 
     if (checkperms()) {
         time()
@@ -94,13 +92,11 @@ let role = msg.guild.roles.find(r => r.name === "Time Out Role");
         setTimeout(delrole, time());
 }}
 	
-if (msg.content.startsWith('untimeout')) {
-if (checkperms()) {
+if (msg.content.startsWith('!untimeout') and checkperms()) {
 delrole()
-}}
+}
 
 console.log(msg.content)
-
 
 });
 
