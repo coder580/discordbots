@@ -5,7 +5,7 @@ const client = new Discord.Client()
 client.on('ready', () => {
 //runs on succesful login
 console.log("logged in the bot is")
-client.user.setActivity("!=Fortnite", "PLAYING")
+client.user.setActivity("!=Fortnite", {type: "WATCHING" });
 
 })
 //start of new message detection
