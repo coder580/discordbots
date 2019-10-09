@@ -7,6 +7,12 @@ client.on('ready', () => {
   console.log("logged in the bot is")
   client.user.setActivity("With my pee pee", "PLAYING")
 })
+
+client.on('message', msg => {
+/*
+these are all the functions in the bot
+----------------------------------------------------------------------------------------------------------------
+**/
 function checkperms(){
     if (msg.member.roles.find(r => r.name === "Moderation Team")) {
     	return "True"
@@ -61,14 +67,11 @@ function time() {
        var time = time * 60000
        return time
 }
-client.on('message', msg => {
-
+/*
+this is where the functions end and the endless if statements begin
+--------------------------------------------------------------------------------------------------------
+**/
 if(msg.author.bot) return
-if (msg.content === '!ping') {
-	msg.author.send('Pong.');
-}
-//i know i did a trash job here but as long as it works 
-
 
 if (msg.content.includes('yeet')) {
 	y()
@@ -89,9 +92,7 @@ let role = msg.guild.roles.find(r => r.name === "Time Out Role");
         console.log(time)
         setTimeout(delrole, time());
 }}
-
-
-
+	
 if (msg.content.includes('untimeout')) {
 if (checkperms()) {
 delrole()
