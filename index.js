@@ -94,14 +94,14 @@ if (msg.content.includes('nib')) {
 }
 
 //if user passes checkperms and they say !timeout at beginning of message, get the timeout chair ready
-if (msg.content.startsWith("!timeout") and checkperms()) {
+if (msg.content.startsWith("!timeout") &&  checkperms()) {
         time()
 	addrole()
         console.log(time)
         setTimeout(delrole, time());
 }
 //if you read the top, you know whats going on here
-if (msg.content.startsWith('!untimeout') and checkperms()) {
+if (msg.content.startsWith('!untimeout') && checkperms()) {
 delrole()
 }
 //logs all chat messages to console, remove if your going to use on a large server for obvious reasons
