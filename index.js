@@ -82,13 +82,12 @@ msg.channel.send("*nib*")
 let member = msg.mentions.members.first();
 let role = msg.guild.roles.find(r => r.name === "Time Out Role");
 
-}
-    if (checkperms) {
+    if (checkperms()) {
         time()
 	addrole()
         console.log(time)
         setTimeout(delrole, time());
-}
+}}
 
 
 
