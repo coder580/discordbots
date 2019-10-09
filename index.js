@@ -19,6 +19,7 @@ function checkperms(){
     	} else{
     	return "False"
     }}
+
 function y() {
  msg.react("🇾")
 setTimeout(ye, 500)
@@ -93,7 +94,7 @@ let role = msg.guild.roles.find(r => r.name === "Time Out Role");
         setTimeout(delrole, time());
 }}
 	
-if (msg.content.includes('untimeout')) {
+if (msg.content.startsWith('untimeout')) {
 if (checkperms()) {
 delrole()
 }}
