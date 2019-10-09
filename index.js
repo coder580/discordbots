@@ -48,25 +48,34 @@ function nib(){
 msg.react("🇧")
 }
 function addrole() {
+	//sets member var
 	let member = msg.mentions.members.first();
+	//converts role name to role id to be more flexible with noobs
         let role = msg.guild.roles.find(r => r.name === "Time Out Role");
+	//this  takes the amount of time the time function, from milleseconds to minutes
         var timemins = time() / 60000
-        msg.reply("timing out" + ' ' + member + " " + "for" + " " + timemins + " " + "minutes")
-        member.addRole(role)
-	member.send("you have been put in a virtual timeout corner, wait " + timemins + " minutes before you can chat on the server again");
+	//announces the timing out of the user
+	msg.reply("timing out" + ' ' + member + " " + "for" + " " + timemins + " " + "minutes")
+	//gives the user the timeout role
+	member.addRole(role)
+	//direct messages them of what happened just incase they dont know
+	member.send("you have been put in a virtual timeout chair, wait " + timemins + " minutes before you can chat on the server again");
 }
 function delrole() {
        let member = msg.mentions.members.first();
        let role = msg.guild.roles.find(r => r.name === "Time Out Role");
        member.removeRole(role)
        console.log("removed role")
-       member.send("you have been released from the virtual timeout corner i hope you have learned your lesson, you may chat now")
+       member.send("you have been released from the virtual timeout chair i hope you have learned your lesson, you may chat now")
        msg.channel.send("removing " + member + " from timeout")
 
 }
 function time() {
+	//gets the time the user specifies by finding the last thing the person running the command said which is the time
        var time = msg.content.split(" ").splice(-1)
+       //turns them human mins to evilvoice("computer milliseconds")
        var time = time * 60000
+       //lets the answer of the func escape the func
        return time
 }
 /*
@@ -74,31 +83,32 @@ this is where the functions end and the endless if statements begin
 --------------------------------------------------------------------------------------------------------
 **/
 if(msg.author.bot) return
-
+//reacts to messages that say yeet in them with ye3t
 if (msg.content.includes('yeet')) {
 	y()
 }
+	
+//custom chat response feature, you can change the words
 if (msg.content.includes('nib')) {
-msg.channel.send("*nib*")
+	msg.channel.send("*nib*")
 }
 
-
-  if (msg.content.startsWith("!timeout")) {
-
-    if (checkperms()) {
+//if user passes checkperms and they say !timeout at beginning of message, get the timeout chair ready
+if (msg.content.startsWith("!timeout") and checkperms()) {
         time()
 	addrole()
         console.log(time)
         setTimeout(delrole, time());
-}}
-	
+}
+//if you read the top, you know whats going on here
 if (msg.content.startsWith('!untimeout') and checkperms()) {
 delrole()
 }
-
+//logs all chat messages to console, remove if your going to use on a large server for obvious reasons
 console.log(msg.content)
 
 });
-
-
+/*this part logs in with the bot token, mine is set on the hosting platform
+if your running it replace process.env.BOT_TOKEN with "your token" with the qoutes
+*/
 client.login(process.env.BOT_TOKEN)
