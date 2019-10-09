@@ -60,6 +60,7 @@ function time() {
        var time = msg.content.split(" ").splice(-1)
        var time = time * 60000
        return time
+}
 client.on('message', msg => {
 
 if(msg.author.bot) return
