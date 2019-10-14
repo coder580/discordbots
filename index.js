@@ -2,11 +2,12 @@
 												
 const Discord = require('discord.js')
 const client = new Discord.Client()
+var member1=0
 client.on('ready', () => {
 //runs on succesful login
 console.log("logged in the bot is")
 //sets things
-client.user.setActivity("Spoopy Anime", {type: "WATCHING" });
+client.user.setActivity("Anime", {type: "WATCHING" });
 
 })
 //start of new message detection
@@ -107,14 +108,21 @@ delrole()
 }
 //logs all chat messages to console, remove if your going to use on a large server for obvious reasons
 console.log(msg.content)
+//requires user id but you can use it to make the bot
+
 if (msg.author.id=="279681908793933827"){
 	if (msg.guild === null){
-	client.users.get("209443315945439232").send(msg.content);
+		if (msg.content.startsWith("!setuserid")) {
+   member1 = msg.content.split(" ").splice(-1)
+} else {
+console.log(member1[0])
+client.users.get(member1[0]).send(msg.content)
+
+}
 }}
-if (msg.author.id=="209443315945439232"){
 	if (msg.guild === null){
-	client.users.get("448274312085110796").send(msg.content);
-	client.users.get("279681908793933827").send(msg.content);
+if (msg.author.id == member1){
+client.users.get("279681908793933827").send(msg.content)
 }}
 //end of new message detection
 });
@@ -126,4 +134,4 @@ client.on("messageDelete", (messageDelete) => {
 /*this part logs in with the bot token, mine is set on the hosting platform
 if your running it replace process.env.BOT_TOKEN with "your token" with the qoutes
 */
- client.login(process.env.BOT_TOKEN)
+client.login(process.env.BOT_TOKEN)
