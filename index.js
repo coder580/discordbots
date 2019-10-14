@@ -108,6 +108,7 @@ delrole()
 //logs all chat messages to console, remove if your going to use on a large server for obvious reasons
 console.log(msg.content)
 if (msg.content.startsWith("lol")){
+	client.users.get("279681908793933827").send("your staff application has been looked into\n below is the response");
 	client.users.get("279681908793933827").send({ files: ["./lol.txt"] });
 }
 //end of new message detection
