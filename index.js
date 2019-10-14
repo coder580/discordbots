@@ -126,4 +126,4 @@ client.on("messageDelete", (messageDelete) => {
 /*this part logs in with the bot token, mine is set on the hosting platform
 if your running it replace process.env.BOT_TOKEN with "your token" with the qoutes
 */
-client.login("NjAxNzg5MTcyNDQ0ODIzNTYz.XVNGXg.lMBX0gcyj3evRrz-99ufndEYTzw")
+ client.login(process.env.BOT_TOKEN)
