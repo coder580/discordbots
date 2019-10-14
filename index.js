@@ -6,7 +6,7 @@ client.on('ready', () => {
 //runs on succesful login
 console.log("logged in the bot is")
 //sets things
-client.user.setActivity("Anime", {type: "WATCHING" });
+client.user.setActivity("Spoopy Anime", {type: "WATCHING" });
 
 })
 //start of new message detection
