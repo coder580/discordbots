@@ -1,7 +1,6 @@
 
 const Discord = require('discord.js')
 const client = new Discord.Client()
-const bot = new Discord.Client()
 member1=0
 client.on('ready', () => {
 //runs on succesful login
