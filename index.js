@@ -22,6 +22,13 @@ function checkperms(){
     	} else{
     	return "False"
     }}
+function isdm(){
+	if (msg.guild === null){
+    return "True"
+	} else{
+	return "False"
+	}
+}
 
 function y() {
  msg.react("🇾")
@@ -85,11 +92,12 @@ this is where the functions end and the endless if statements begin
 --------------------------------------------------------------------------------------------------------
 **/
 if(msg.author.bot) return
+if (msg.content.startsWith("//")) return
 //reacts to messages that say yeet in them with ye3t
 if (msg.content.includes('yeet')) {
 	y()
 }
-	
+console.log(msg.member)
 //custom chat response feature, you can change the words
 if (msg.content.includes('nib')) {
 	msg.channel.send("*nib*")
@@ -111,18 +119,19 @@ console.log(msg.content)
 //requires user id but you can use it to make the bot
 
 if (msg.author.id=="279681908793933827"){
-	if (msg.guild === null){
+	if (isdm()){
 		if (msg.content.startsWith("!setuserid")) {
    member1 = msg.content.split(" ").splice(-1)
 } else {
 console.log(member1[0])
+msg.author.send("to: " + client.users.get(member1[0].username)+"\n"+msg.content)
 client.users.get(member1[0]).send(msg.content)
-
 }
 }}
-	if (msg.guild === null){
+	if (isdm()){
 if (msg.author.id == member1){
-client.users.get("279681908793933827").send(msg.content)
+client.users.get("279681908793933827").send("from: " + msg.author.username+"\n"+msg.content)
+
 }}
 //end of new message detection
 });
