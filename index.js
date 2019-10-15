@@ -124,14 +124,10 @@ client.user.setAvatar((msg.attachments).array()[0].url);
 }
 if (msg.content.startsWith("!setwatching")){
 	   watching = (msg.content).slice(13)
-	   process.env['STATUS'] = watching;
-	   process.env['STATUS1'] = 'WATCHING';
 	client.user.setActivity(watching, {type: "WATCHING" });
 }
 if (msg.content.startsWith("!setplaying")){
 	   playing = (msg.content).slice(12)
-  	   process.env.STATUS = playing;
-	   process.env.STATUS1 = 'PLAYING';
 	client.user.setActivity(playing, {type: "PLAYING" });
 }
 }
