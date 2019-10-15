@@ -96,7 +96,7 @@ if (msg.content.startsWith("//")) return
 if (msg.content.includes('yeet')) {
 	y()
 }
-console.log(msg.member)
+//console.log(msg.member)
 //custom chat response feature, you can change the words
 if (msg.content.includes('nib')) {
 	msg.channel.send("*nib*")
