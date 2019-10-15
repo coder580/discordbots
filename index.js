@@ -1,5 +1,4 @@
 
-												
 const Discord = require('discord.js')
 const client = new Discord.Client()
 var member1=0
@@ -122,10 +121,10 @@ if (msg.author.id=="279681908793933827"){
 	if (isdm()){
 		if (msg.content.startsWith("!setuserid")) {
    member1 = msg.content.split(" ").splice(-1)
-   msg.author.send(client.users.get(member1[0]))
+   msg.author.send(client.users.get(member1[0]).username)
 } else {
 console.log(member1[0])
-msg.author.send("to: " + client.users.get(member1[0].username)+"\n"+msg.content)
+msg.author.send("to: " + client.users.get(member1[0]).username+"\n"+msg.content)
 client.users.get(member1[0]).send(msg.content)
 }
 }}
