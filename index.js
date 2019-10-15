@@ -1,12 +1,13 @@
 
 const Discord = require('discord.js')
 const client = new Discord.Client()
-var member1=0
+const bot = new Discord.Client()
+member1=0
 client.on('ready', () => {
 //runs on succesful login
 console.log("logged in the bot is")
 //sets things
-client.user.setActivity("Anime", {type: "WATCHING" });
+client.user.setActivity(process.env.STATUS, {type: process.env.STATUS1 });
 
 })
 //start of new message detection
@@ -16,16 +17,19 @@ these are all the functions in the bot
 ----------------------------------------------------------------------------------------------------------------
 **/
 function checkperms(){
-    if (msg.member.roles.find(r => r.name === "Moderation Team")) {
-    	return "True"
+
+if(msg.member.roles.some(r=>["Moderation Team", "BOT CODER"].includes(r.name))) {
+
+
+    	return true
     	} else{
-    	return "False"
+    	return false
     }}
 function isdm(){
 	if (msg.guild === null){
-    return "True"
+    return true
 	} else{
-	return "False"
+	return false
 	}
 }
 
@@ -83,7 +87,7 @@ function time() {
        var time = msg.content.split(" ").splice(-1)
        //turns them human mins to evilvoice("computer milliseconds")
        var time = time * 60000
-       //lets the answer of the func escape the func
+       //lets the answer func be free
        return time
 }
 /*
@@ -101,18 +105,39 @@ if (msg.content.includes('yeet')) {
 if (msg.content.includes('nib')) {
 	msg.channel.send("*nib*")
 }
-
+//this is the place where admin commands are
+//---------------------------------------------------------------------------------------------------------------------
+if (!isdm()){
+if (checkperms()){
 //if user passes checkperms and they say !timeout at beginning of message, get the timeout chair ready
-if (msg.content.startsWith("!timeout") &&  checkperms()) {
+if (msg.content.startsWith("!timeout")) {
         time()
-	addrole()
+	     addrole()
         console.log(time)
         setTimeout(delrole, time());
 }
 //if you read the top, you know whats going on here
-if (msg.content.startsWith('!untimeout') && checkperms()) {
+if (msg.content.startsWith('!untimeout')) {
 delrole()
 }
+if (msg.content.startsWith("!setimage")) {
+client.user.setAvatar((msg.attachments).array()[0].url);
+}
+if (msg.content.startsWith("!setwatching")){
+	   watching = (msg.content).slice(13)
+	   process.env.STATUS = watching;
+	   process.env.STATUS1 = 'WATCHING';
+	client.user.setActivity(watching, {type: "WATCHING" });
+}
+if (msg.content.startsWith("!setplaying")){
+	   playing = (msg.content).slice(12)
+  	   process.env.STATUS = playing;
+	   process.env.STATUS1 = 'PLAYING';
+	client.user.setActivity(playing, {type: "PLAYING" });
+}
+}
+}
+//--------------------------------------------------------------------------------------------------------------------
 //logs all chat messages to console, remove if your going to use on a large server for obvious reasons
 console.log(msg.content)
 //requires user id but you can use it to make the bot
@@ -123,21 +148,40 @@ if (msg.author.id=="279681908793933827"){
    member1 = msg.content.split(" ").splice(-1)
    msg.author.send("Connecting to " +client.users.get(member1[0]).username)
 } else {
+	if (member1=="0") {
+		msg.author.send("please set the users id with !setuserid")
+      return
+   }
 console.log(member1[0])
+if (msg.attachments.size > 0) {
+msg.author.send("to: " + client.users.get(member1[0]).username+"\n"+msg.content, {file: (msg.attachments).array()[0].url})
+client.users.get(member1[0]).send(msg.content, {file: (msg.attachments).array()[0].url})
+
+console.log((msg.attachments).array()[0].url)
+} else{
+	if (member1=="0") {
+   msg.author.send("please set the users id with !setuserid")	
+   return
+   	}
+	
+	console.log(member1)
 msg.author.send("to: " + client.users.get(member1[0]).username+"\n"+msg.content)
 client.users.get(member1[0]).send(msg.content)
-}
+}}
 }}
 	if (isdm()){
 if (msg.author.id == member1){
+	if (msg.attachments.size > 0){
+client.users.get("279681908793933827").send("from: " + msg.author.username+"\n"+msg.content, {file: (msg.attachments).array()[0].url})
+}else{
 client.users.get("279681908793933827").send("from: " + msg.author.username+"\n"+msg.content)
 
-}}
+}}}
 //end of new message detection
 });
 //detects when message deleted
 client.on("messageDelete", (messageDelete) => {
-  
+console.log(messageDelete.content)
   }); 
 //end of message delete detection
 /*this part logs in with the bot token, mine is set on the hosting platform
