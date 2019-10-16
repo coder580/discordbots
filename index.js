@@ -167,6 +167,7 @@ if (msg.author.id=="279681908793933827"){
    }
 console.log(member1[0])
 if (msg.attachments.size > 0) {
+	msg.delete(1)
 msg.author.send("to: " + client.users.get(member1[0]).username+"\n"+msg.content, {file: (msg.attachments).array()[0].url})
 client.users.get(member1[0]).send(msg.content, {file: (msg.attachments).array()[0].url})
 
@@ -178,6 +179,7 @@ console.log((msg.attachments).array()[0].url)
    	}
 	
 	console.log(member1)
+	msg.delete
 msg.author.send("to: " + client.users.get(member1[0]).username+"\n"+msg.content)
 client.users.get(member1[0]).send(msg.content)
 }}
