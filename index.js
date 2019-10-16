@@ -208,4 +208,3 @@ console.log(messageDelete.content)
 if your running it replace process.env.BOT_TOKEN with "your token" with the qoutes
 */
 //client.login(process.env.BOT_TOKEN)
-client.login("NjAxNzg5MTcyNDQ0ODIzNTYz.XaPnhw.A5g47Q_F7DAmDE_UQDfPbGuqrdk")
