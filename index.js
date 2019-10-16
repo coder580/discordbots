@@ -207,4 +207,4 @@ console.log(messageDelete.content)
 /*this part logs in with the bot token, mine is set on the hosting platform
 if your running it replace process.env.BOT_TOKEN with "your token" with the qoutes
 */
-//client.login(process.env.BOT_TOKEN)
+client.login(process.env.BOT_TOKEN)
