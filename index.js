@@ -1,5 +1,6 @@
 
 const Discord = require('discord.js')
+const ud = require('urban-dictionary')
 const client = new Discord.Client()
 member1=0
 client.on('ready', () => {
@@ -11,6 +12,7 @@ client.user.setActivity(process.env.STATUS, {type: process.env.STATUS1 });
 })
 //start of new message detection
 client.on('message', msg => {
+if(msg.author.bot) return
 /*
 these are all the functions in the bot
 ----------------------------------------------------------------------------------------------------------------
@@ -102,7 +104,7 @@ if (msg.content.includes('yeet')) {
 //console.log(msg.member)
 //custom chat response feature, you can change the words
 if (msg.content.includes('nib')) {
-	msg.channel.send("*nib*")
+	msg.channel.send("*n i b*")
 }
 //this is the place where admin commands are
 //---------------------------------------------------------------------------------------------------------------------
@@ -124,10 +126,14 @@ client.user.setAvatar((msg.attachments).array()[0].url);
 }
 if (msg.content.startsWith("!setwatching")){
 	   watching = (msg.content).slice(13)
+	   process.env['STATUS'] = watching;
+	   process.env['STATUS1'] = 'WATCHING';
 	client.user.setActivity(watching, {type: "WATCHING" });
 }
 if (msg.content.startsWith("!setplaying")){
 	   playing = (msg.content).slice(12)
+  	   process.env.STATUS = playing;
+	   process.env.STATUS1 = 'PLAYING';
 	client.user.setActivity(playing, {type: "PLAYING" });
 }
 }
@@ -136,7 +142,19 @@ if (msg.content.startsWith("!setplaying")){
 //logs all chat messages to console, remove if your going to use on a large server for obvious reasons
 console.log(msg.content)
 //requires user id but you can use it to make the bot
+if (msg.content.startsWith("!help")){
+msg.channel.send(`admin commands\n-------------------------------\n
+!timeout @user mins | puts people in virtual timeout chair\n
+!untimeout @user | removes people from the virtual timeout chair\n
+!setplaying insert desired status | sets playing status\n
+!setwatching insert desired status | sets watching status\n
+!setimage upload image | sets bot profile image\n
+----------------------------\n normal user commands\n ----------------------------
+!ud word | gets a definition from urban dictionary\n
+saying yeet in a message | reacts with yeet using emojis`)
 
+
+}
 if (msg.author.id=="279681908793933827"){
 	if (isdm()){
 		if (msg.content.startsWith("!setuserid")) {
@@ -172,6 +190,13 @@ client.users.get("279681908793933827").send("from: " + msg.author.username+"\n"+
 client.users.get("279681908793933827").send("from: " + msg.author.username+"\n"+msg.content)
 
 }}}
+if (msg.content.startsWith("!ud")){
+definition = (msg.content).slice(4)
+msg.channel.send("word:")
+msg.channel.send(definition)
+ud.term(definition).then((result) => msg.channel.send("definition:\n"+(result.entries[0].definition)))
+ud.term(definition).then((result) => msg.channel.send("example:\n"+(result.entries[0].example)))
+}
 //end of new message detection
 });
 //detects when message deleted
@@ -182,4 +207,5 @@ console.log(messageDelete.content)
 /*this part logs in with the bot token, mine is set on the hosting platform
 if your running it replace process.env.BOT_TOKEN with "your token" with the qoutes
 */
-client.login(process.env.BOT_TOKEN)
+//client.login(process.env.BOT_TOKEN)
+client.login("NjAxNzg5MTcyNDQ0ODIzNTYz.XaPnhw.A5g47Q_F7DAmDE_UQDfPbGuqrdk")
