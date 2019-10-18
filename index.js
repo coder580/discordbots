@@ -3,6 +3,7 @@ const Discord = require('discord.js')
 const ud = require('urban-dictionary')
 const client = new Discord.Client()
 member1=0
+which="no"
 client.on('ready', () => {
 //runs on succesful login
 console.log("logged in the bot is")
@@ -158,38 +159,62 @@ saying yeet in a message | reacts with yeet using emojis`)
 if (msg.author.id=="279681908793933827"){
 	if (isdm()){
 		if (msg.content.startsWith("!setuserid")) {
+			user=msg.author.id
    member1 = msg.content.split(" ").splice(-1)
    msg.author.send("Connecting to " +client.users.get(member1[0]).username)
+   which="user"
 } else {
-	if (member1=="0") {
-		msg.author.send("please set the users id with !setuserid")
-      return
-   }
-console.log(member1[0])
+
+if (msg.content.startsWith("!setchanid")) {
+	user=msg.author.id
+   member1 = msg.content.split(" ").splice(-1)
+   msg.author.send("Connecting to " +client.channels.get(member1[0]))
+   which="channel"
+   return
+} else{
+
+if (which==="user"){
 if (msg.attachments.size > 0) {
 	msg.delete(1)
 msg.author.send("to: " + client.users.get(member1[0]).username+"\n"+msg.content, {file: (msg.attachments).array()[0].url})
 client.users.get(member1[0]).send(msg.content, {file: (msg.attachments).array()[0].url})
-
-console.log((msg.attachments).array()[0].url)
 } else{
-	if (member1=="0") {
-   msg.author.send("please set the users id with !setuserid")	
-   return
-   	}
-	
-	console.log(member1)
-	msg.delete
+console.log(member1)
 msg.author.send("to: " + client.users.get(member1[0]).username+"\n"+msg.content)
 client.users.get(member1[0]).send(msg.content)
+}} else{
+if (member1!=0){
+if (msg.attachments.size > 0) {
+	msg.delete(1)
+msg.author.send("to: " + client.channels.get(member1[0])+"\n"+msg.content, {file: (msg.attachments).array()[0].url})
+client.channel.get(member1[0]).send(msg.content, {file: (msg.attachments).array()[0].url})
+} else{
+	msg.delete(1)
+msg.author.send("to: " + client.channels.get(member1[0])+"\n"+msg.content)
+client.channels.get(member1[0]).send(msg.content)
+
 }}
+}
+}
+}
+
 }}
 	if (isdm()){
+		if (which==="user"){
 if (msg.author.id == member1){
 	if (msg.attachments.size > 0){
-client.users.get("279681908793933827").send("from: " + msg.author.username+"\n"+msg.content, {file: (msg.attachments).array()[0].url})
+client.users.get(user).send("from: " + msg.author+"\n"+msg.content, {file: (msg.attachments).array()[0].url})
 }else{
-client.users.get("279681908793933827").send("from: " + msg.author.username+"\n"+msg.content)
+client.users.get(user).send("from: " + msg.author+"\n"+msg.content)
+
+}}}}
+if (which==="channel"){
+	console.log(msg.channel.id)
+if (msg.channel.id == member1[0]){
+	if (msg.attachments.size > 0){
+client.users.get(user).send("from: " + msg.author+"\n"+msg.content, {file: (msg.attachments).array()[0].url})
+}else{
+client.users.get(user).send("from: " + msg.author+"\n"+msg.content)
 
 }}}
 if (msg.content.startsWith("!ud")){
