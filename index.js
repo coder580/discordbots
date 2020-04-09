@@ -9,6 +9,7 @@ client.on('ready', () => {
 console.log("logged in the bot is")
 //sets things
 client.user.setActivity(process.env.STATUS, {type: process.env.STATUS1 });
+bot.user.setActivity("this won't appear in the bot's custom status!", {type: 4})
 
 })
 //start of new message detection
