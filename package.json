@@ -16,7 +16,7 @@
 
   "dependencies": {
 
-    "discord.js",
+    "discord.js": ">2",
 
     "request": "2.81.0",
     
