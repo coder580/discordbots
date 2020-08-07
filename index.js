@@ -230,8 +230,5 @@ ud.term(definition).then((result) => msg.channel.send("example:\n"+(result.entri
 client.on("messageDelete", (messageDelete) => {
 console.log(messageDelete.content)
   }); 
-//end of message delete detection
-/*this part logs in with the bot token, mine is set on the hosting platform
-if your running it replace process.env.BOT_TOKEN with "your token" with the qoutes
-*/
+//NjAxNzg5MTcyNDQ0ODIzNTYz.XTHZ1w.DX9T5bF4GKbaB0p1iUsMZVgDfzI
 client.login(process.env.BOT_TOKEN)
